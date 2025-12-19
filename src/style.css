@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+/* Textura de fundo */
+.bg-textured {
+  background-color: #121212;
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0),
+    radial-gradient(circle at 20px 20px, rgba(255, 255, 255, 0.02) 1px, transparent 0);
+  background-size: 40px 40px, 80px 80px;
+  position: relative;
+}
+
+.bg-textured::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.01) 2px,
+      rgba(255, 255, 255, 0.01) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.01) 2px,
+      rgba(255, 255, 255, 0.01) 4px
+    );
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Estilos customizados para os botões das plataformas */
+.platform-btn {
+  @apply relative overflow-hidden rounded-full px-4 py-2.5 md:px-6 md:py-4 text-white transition-all duration-300;
+  @apply border border-white/20 backdrop-blur-sm;
+  @apply hover:scale-105 hover:shadow-2xl;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.platform-btn::before {
+  content: '';
+  @apply absolute bottom-0 left-0 right-0 h-1 transition-all duration-300;
+  opacity: 0;
+  height: 35%;
+  z-index: -1;
+}
+
+/* Desktop: efeito apenas no hover */
+@media (min-width: 769px) {
+  .platform-btn:hover::before {
+    opacity: 1;
+  }
+}
+
+/* Spotify - Verde */
+.spotify-btn::before {
+  background: linear-gradient(to top, #1DB954 0%, rgba(29, 185, 84, 0.05) 75%, transparent 100%);
+}
+
+.spotify-btn:hover {
+  border-color: rgba(29, 185, 84, 0.5);
+  box-shadow: 0 0 30px rgba(29, 185, 84, 0.3);
+}
+
+/* YouTube Music - Branco */
+.youtube-btn::before {
+  background: linear-gradient(to top, #FFFFFF 0%, rgba(255, 255, 255, 0.05) 75%, transparent 100%);
+}
+
+.youtube-btn:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+/* Amazon Music - Azul Bebê */
+.amazon-btn::before {
+  background: linear-gradient(to top, #87CEEB 0%, rgba(135, 206, 235, 0.05) 75%, transparent 100%);
+}
+
+.amazon-btn:hover {
+  border-color: rgba(135, 206, 235, 0.5);
+  box-shadow: 0 0 30px rgba(135, 206, 235, 0.3);
+}
+
+/* Apple Music - Rosa/Magenta */
+.apple-btn::before {
+  background: linear-gradient(to top, #FA243C 0%, rgba(250, 36, 60, 0.05) 75%, transparent 100%);
+}
+
+.apple-btn:hover {
+  border-color: rgba(250, 36, 60, 0.5);
+  box-shadow: 0 0 30px rgba(250, 36, 60, 0.3);
+}
+
+/* Instagram - Gradiente Multicolor */
+.instagram-btn::before {
+  background: linear-gradient(
+    to top,
+    #833AB4 0%,
+    #FD1D1D 15%,
+    #FCAF45 30%,
+    #F77737 45%,
+    rgba(131, 58, 180, 0.05) 75%,
+    transparent 100%
+  );
+}
+
+.instagram-btn:hover {
+  border-color: rgba(131, 58, 180, 0.5);
+  box-shadow: 0 0 30px rgba(131, 58, 180, 0.3);
+}
+
+/* Estilos para mobile - logos circulares */
+.platform-logo-circle {
+  @apply w-16 h-16 rounded-full flex items-center justify-center;
+  @apply border-2 transition-all duration-300;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.platform-btn-mobile {
+  @apply text-white transition-all duration-300;
+  @apply hover:scale-110;
+}
+
+/* Spotify - Verde */
+.spotify-circle {
+  border-color: #1DB954;
+  box-shadow: 0 0 8px rgba(29, 185, 84, 0.4), 0 0 15px rgba(29, 185, 84, 0.2);
+}
+
+/* YouTube Music - Branco */
+.youtube-circle {
+  border-color: #FFFFFF;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4), 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Amazon Music - Azul Bebê */
+.amazon-circle {
+  border-color: #87CEEB;
+  box-shadow: 0 0 8px rgba(135, 206, 235, 0.4), 0 0 15px rgba(135, 206, 235, 0.2);
+}
+
+/* Apple Music - Rosa/Magenta */
+.apple-circle {
+  border-color: #FA243C;
+  box-shadow: 0 0 8px rgba(250, 36, 60, 0.4), 0 0 15px rgba(250, 36, 60, 0.2);
+}
+
+/* Instagram - Gradiente Multicolor */
+.instagram-circle {
+  border-color: #833AB4;
+  box-shadow: 0 0 8px rgba(131, 58, 180, 0.4), 0 0 15px rgba(131, 58, 180, 0.2);
+}
+
